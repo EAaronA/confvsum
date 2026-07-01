@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CONFVSUM | LIVE SESSION</title>
+
+<link rel="stylesheet" href="../css/live.css">
+
+</head>
+
+<body>
+
+<div id="introScreen">
+
+    <div class="intro-content">
+
+        <h1>CONFVSUM</h1>
+
+        <h2>LIVE SESSION</h2>
+
+        <p>
+
+            Live Session exclusivo
+            del formato físico.
+
+        </p>
+
+        <button id="startBtn">
+
+            ENTER
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<div id="introVideoScreen">
+
+    <video id="introVideo">
+
+        <source src="../assets/intro-live.mp4">
+
+    </video>
+
+    <button id="acceptBtn">
+
+        ACCEPT
+
+    </button>
+
+    <button id="skipIntroBtn">
+    SKIP INTRO
+    </button>
+
+</div>
+
+<div id="playerContainer">
+
+    <video id="liveVideo">
+
+        <source
+            src="../assets/ConfvsumLiveSession-Playa.mp4"
+            type="video/mp4">
+
+    </video>
+
+    <div id="controls">
+
+        <div class="timeline-wrapper">
+
+            <span id="currentTime">
+
+                00:00
+
+            </span>
+
+            <div id="timeline">
+
+                <div id="timelineProgress"></div>
+
+                <div id="timelineThumb"></div>
+
+                <div id="timePreview">
+
+                    00:00
+
+                </div>
+
+            </div>
+
+            <span id="duration">
+
+                00:00
+
+            </span>
+
+        </div>
+
+        <div class="buttons">
+
+            <div class="controls-row">
+
+                <div class="control-group">
+
+                    <button id="rewind">
+
+                        ↺
+
+                    </button>
+
+                </div>
+
+                <div class="control-group">
+
+                    <button id="playPause">
+
+                        ▶
+
+                    </button>
+
+                </div>
+
+                <div class="control-group">
+
+                    <button id="forward">
+
+                        ↻
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<button id="backBtn">
+
+    RETURN
+
+</button>
+
+<!-- Pantalla Final -->
+
+<div id="finalScreen">
+
+    <div class="final-content">
+
+        <h1>GRACIAS</h1>
+
+        <span>POR VIVIR CONFVSUM</span>
+
+        <p>
+
+            Llegaste hasta el final de esta experiencia.
+
+            <br><br>
+
+            Gracias por adquirir la
+            <strong>Collector Edition</strong>
+            y dedicar tu tiempo a recorrer cada uno de sus apartados.
+
+            <br><br>
+
+            Tu apoyo hace posible que proyectos independientes como este
+            continúen existiendo.
+
+            <br><br>
+
+            Espero que hayas disfrutado este viaje tanto como yo disfruté
+            creándolo.
+
+        </p>
+
+        <a href="../index.html">
+
+            VOLVER AL MENÚ
+
+        </a>
+
+    </div>
+
+</div>
+
+<script src="../js/videoPlayer.js"></script>
+<script src="../js/live.js"></script>
+
+</body>
+
+</html>

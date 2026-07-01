@@ -1,0 +1,341 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    font-family:"Segoe UI",sans-serif;
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+/* ======================
+   CONTENEDOR PRINCIPAL
+====================== */
+
+.container{
+
+    width:95vw;
+    height:65vh;
+
+    margin:auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+
+    gap:40px;
+}
+
+/* ======================
+   PORTADA
+====================== */
+
+.album-panel{
+
+    width:300px;
+    flex-shrink:0;
+
+    text-align:center;
+}
+
+#cover{
+
+    width:100%;
+    border-radius:12px;
+
+    box-shadow:
+    0 0 20px rgba(198,255,0,.15);
+}
+
+.album-panel h1{
+
+    margin-top:15px;
+
+    font-size:3rem;
+
+    letter-spacing:8px;
+}
+
+.album-panel p{
+
+    margin-top:5px;
+
+    color:#c6ff00;
+}
+
+/* ======================
+   TRACKLIST
+====================== */
+
+.track-panel{
+
+    width:650px;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.track-panel h2{
+
+    color:#c6ff00;
+
+    font-size:2rem;
+
+    letter-spacing:5px;
+
+    margin-bottom:10px;
+}
+
+#trackList{
+
+    list-style:none;
+
+    flex:1;
+
+}
+
+#trackList li{
+
+    padding:10px 11px;
+
+    font-size:1rem;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+#trackList li:hover{
+
+    background:
+    rgba(198,255,0,.05);
+
+    color:#c6ff00;
+}
+
+/* ======================
+   PLAYER
+====================== */
+
+#playerSection{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:10px;
+}
+
+#currentSong{
+    font-size:2rem;
+    color:#c6ff00;
+}
+
+#songInfo{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+#songInfo p{
+    padding:8px 15px;
+    border:1px solid rgba(198,255,0,.2);
+    border-radius:8px;
+    font-size:.9rem;
+}
+
+#songInfo strong{
+    color:#c6ff00;
+}
+
+#waveform{
+    width:90%;
+    max-width:1500px;
+    height:35px;
+}
+
+.controls{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+}
+
+.controls button{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    font-size:1.2rem;
+    cursor:pointer;
+    transition:.25s;
+}
+
+#playBtn{
+    width:65px;
+    height:65px;
+    font-size:1.8rem;
+}
+
+.controls button:hover{
+    color:#c6ff00;
+    background:rgba(198,255,0,.15);
+}
+
+#backBtn{
+    position:fixed;
+    top:20px;
+    left:20px;
+
+    z-index:50;
+
+    padding:12px 22px;
+
+    border:3px solid #00ff9d;
+    background:transparent;
+    color:#69f306;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+#backBtn:hover{
+    box-shadow:0 0 10px #00ff9d,
+               0 0 25px #00ff9d;
+}
+
+/* ======================
+   PANTALLA FINAL
+====================== */
+
+#unlockScreen{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100vw;
+    height:100vh;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#000;
+
+    z-index:99999;
+
+}
+
+#unlockScreen.show{
+
+    display:flex;
+
+}
+
+.unlock-content{
+
+    width:min(900px,90vw);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    gap:35px;
+
+}
+
+.unlock-content h1{
+
+    font-size:clamp(70px,9vw,140px);
+
+    color:#b8ff00;
+
+    line-height:.9;
+
+    letter-spacing:10px;
+
+    text-shadow:
+        0 0 15px #7dff00,
+        0 0 40px #7dff00,
+        0 0 80px #7dff00;
+
+}
+
+.unlock-content span{
+
+    font-size:26px;
+
+    color:white;
+
+    letter-spacing:12px;
+
+}
+
+.unlock-content p{
+
+    max-width:700px;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:#ddd;
+
+}
+
+.unlock-content a{
+
+    padding:18px 70px;
+
+    color:#b8ff00;
+
+    border:2px solid #b8ff00;
+
+    text-decoration:none;
+
+    letter-spacing:5px;
+
+    transition:.3s;
+
+}
+
+.unlock-content a:hover{
+
+    background:#b8ff00;
+
+    color:#000;
+
+    box-shadow:0 0 30px #b8ff00;
+
+}

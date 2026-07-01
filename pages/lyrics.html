@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/lyrics.css">
+    <title>Document</title>
+</head>
+<body>
+
+<button id="backBtn">
+    RETURN
+</button>
+
+<video autoplay muted loop playsinline id="bg-video">
+    <source src="../assets/ani-con.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="noise"></div>
+
+
+    <h1 class="lyrics-title">
+    Lyrics Videos
+</h1>
+
+    <div id="lyricsMenu">
+
+    <button class="song-btn"
+        data-video="../assets/lyric/1-Adsurdo.mp4">
+        
+        <img
+            src="../assets/mini/noia-mini.png"
+            alt="Adsurdo">
+
+        <span>Adsurdo</span>
+
+    </button>
+
+    <button class="song-btn"
+        data-video="../assets/lyric/2-ANATEMA.mp4">
+        <img
+            src="../assets/mini/anatema-mini.png"
+            alt="ANATEMA">
+
+        <span>ANATEMA</span>
+
+    </button>
+
+    <button class="song-btn"
+        data-video="../assets/lyric/3-desprende.mp4"> 
+        <img
+            src="../assets/mini/desprende-mini.png"
+            alt="desprende">
+
+        <span>desprende</span>
+    </button>
+
+    <button class="song-btn"
+        data-video="../assets/lyric/4.-trVsh.mp4">
+        <img
+            src="../assets/mini/trVsh-mini.png"
+            alt="trVsh">
+
+        <span>trVsh</span>
+    </button>
+
+    <button class="song-btn"
+        data-video="../assets/lyric/5-OFRENDA.mp4">
+        <img
+            src="../assets/mini/ofrenda-mini.png"
+            alt="trVsh">
+
+        <span>OFRENDA</span>
+    </button>
+
+        <button class="song-btn"
+        data-video="../assets/lyric/6-npm.mp4">
+        <img
+            src="../assets/mini/npm-mini.png"
+            alt="npm">
+
+        <span>npm</span>
+    </button>
+
+        <button class="song-btn"
+        data-video="../assets/lyric/7-MXSXCR3 ft-ill Vextia .mp4">
+        <img
+            src="../assets/mini/MXSXCR3-mini.png"
+            alt="MXSXCR3">
+
+        <span>MXSXCR3</span>
+    </button>
+
+    <button class="song-btn"
+        data-video="../assets/lyric/8-CadaQueVeoUnGatoRallado.mp4">
+        <img
+            src="../assets/mini/cadaque-mini.jpg"
+            alt="CadaQueVeoUnGatoRallado">
+
+        <span>CadaQueVeoUnGatoRallado</span>
+    </button>
+
+    <button class="song-btn"
+        data-video="../assets/lyric/9-Imagen profanaFT-Tinta.mp4">
+        <img
+            src="../assets/mini/img-profana-mini.png"
+            alt="Imagen profana">
+
+        <span>Imagen profana</span>
+    </button>
+
+        <button class="song-btn"
+        data-video="../assets/lyric/10-ImmoraL.mp4">
+        <img
+            src="../assets/mini/immoral-mini.png"
+            alt="ImmoraL">
+
+        <span>ImmoraL</span>
+    </button>
+
+</div>
+<div id="playerContainer">
+
+    <video id="lyricVideo"></video>
+
+    <button id="backtoLyBtn">
+        RETURN
+    </button>
+
+    <!-- CONTROLES -->
+
+    <div id="controls">
+
+        <div class="timeline-wrapper">
+
+            <span id="currentTime">
+                00:00
+            </span>
+
+            <div id="timeline">
+
+                <div id="timelineProgress"></div>
+
+                <div id="timelineThumb"></div>
+
+                <div id="timePreview">
+                    00:00
+                </div>
+
+            </div>
+
+            <span id="duration">
+                00:00
+            </span>
+
+        </div>
+
+        <div class="buttons">
+
+            <div class="controls-row">
+
+                <div class="control-group">
+                    <button id="rewind">↺</button>
+                </div>
+
+                <div class="control-group">
+                    <button id="playPause">▶</button>
+                </div>
+
+                <div class="control-group">
+                    <button id="forward">↻</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Pantalla bloqueo -->
+
+<div id="unlockScreen">
+
+    <div class="unlock-content">
+
+        <h1>Lyric Videos</h1>
+
+        <span>COMPLETADO</span>
+
+        <p>
+
+            Has descubierto el significado visual de cada canción.
+
+            Ahora continúa hacia el apartado
+            <strong>Créditos</strong>,
+            donde conocerás a todas las personas que hicieron posible
+            <strong>CONFVSUM</strong>.
+
+        </p>
+        <a href="../index.html">
+
+            CONTINUAR
+
+        </a>
+
+    </div>
+
+</div>
+
+<script src="../js/unlocks.js"></script>
+<script src="../js/videoPlayer.js"></script>
+<script src="../js/lyrics.js"></script>
+
+</body>
+</html>
+
+

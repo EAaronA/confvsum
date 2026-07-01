@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CONFVSUM | Full Album</title>
+
+    <link rel="stylesheet" href="../css/fullalbum.css">
+
+</head>
+
+<body>
+
+    <!-- INTRO -->
+
+    <div id="introScreen">
+
+        <div class="intro-content">
+
+            <h1>CONFVSUM</h1>
+
+            <h2>FULL ALBUM EXPERIENCE</h2>
+
+            <p>
+                Contenido audiovisual exclusivo.
+            </p>
+
+            <button id="startBtn">
+                ENTER
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- REPRODUCTOR -->
+
+    <div id="playerContainer">
+
+        <video id="albumVideo">
+
+            <source
+                src="../assets/fullVisualizer-Confvsum.mp4"
+                type="video/mp4">
+
+        </video>
+
+        <!-- BOTÓN REGRESAR -->
+
+        <button id="backBtn">
+            RETURN
+        </button>
+
+        <!-- CONTROLES -->
+
+        <div id="controls">
+
+            <div class="timeline-wrapper">
+
+                <span id="currentTime">
+                    00:00
+                </span>
+
+                <div id="timeline">
+
+                    <div id="timelineProgress"></div>
+
+                    <div id="timelineThumb"></div>
+
+                    <div id="timePreview">
+                        00:00
+                    </div>
+
+                </div>
+
+                <span id="duration">
+                    00:00
+                </span>
+
+            </div>
+
+            <div class="buttons">
+
+                <div class="controls-row">
+
+                    <div class="control-group">
+
+                        <button id="rewind">
+                            ↺
+                        </button>
+
+                    </div>
+
+                    <div class="control-group">
+
+                        <button id="playPause">
+                            ▶
+                        </button>
+
+                    </div>
+
+                    <div class="control-group">
+
+                        <button id="forward">
+                            ↻
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Pantalla final -->
+
+<div id="unlockScreen">
+
+    <div class="unlock-content">
+
+        <h1>FULL ALBUM</h1>
+
+        <h2>COMPLETADO</h2>
+
+        <p>
+
+            Has recorrido <strong>CONFVSUM</strong> de principio a fin.
+
+            Ahora puedes acceder al apartado
+            <strong>Song Selection</strong>
+            para emular una experiencia tipo DVD.
+
+        </p>
+
+        <a href="../index.html">
+
+            CONTINUAR
+
+        </a>
+
+    </div>
+
+</div>
+    <script src="../js/unlocks.js"></script>
+    <script src="../js/videoPlayer.js"></script>
+    <script src="../js/fullalbum.js"></script>
+
+</body>
+
+</html>

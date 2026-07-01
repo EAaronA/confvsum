@@ -1,0 +1,298 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Inter,sans-serif;
+
+    overflow:hidden;
+
+    background:black;
+
+    color:white;
+}
+
+#bg-video{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    filter:blur(12px);
+
+    transform:scale(1.1);
+
+    z-index:-3;
+}
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(0,0,0,.8);
+
+    z-index:-2;
+}
+
+.database-container{
+
+    width:100%;
+
+    height:100vh;
+
+    padding:40px;
+}
+
+.database-title{
+
+    text-align:center;
+
+    color:white;
+
+    font-size:3rem;
+
+    letter-spacing:4px;
+
+    text-shadow:
+    0 0 10px #65ff8d;
+}
+
+.database-content{
+
+    display:flex;
+
+    gap:40px;
+
+    margin-top:40px;
+
+    height:80vh;
+}
+
+#songList{
+
+    width:320px;
+
+    overflow-y:auto;
+
+    border-right:
+    1px solid rgba(255,255,255,.1);
+}
+
+.song-item{
+
+    padding:15px;
+
+    cursor:pointer;
+
+    border-left:
+    3px solid transparent;
+
+    transition:.2s;
+}
+
+.song-item:hover{
+
+    border-left:
+    3px solid #65ff8d;
+
+    background:
+    rgba(255,255,255,.03);
+}
+
+.song-item.active{
+
+    border-left:
+    3px solid #65ff8d;
+}
+
+#songDetails{
+    flex:1;
+
+    overflow-y:auto;
+
+    padding-left:30px;
+
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+}
+
+#songDetails::-webkit-scrollbar{
+    width:0;
+    display:none;
+}
+
+.section{
+
+    margin-bottom:35px;
+}
+
+.section h3{
+
+    color:#65ff8d;
+
+    margin-bottom:10px;
+}
+
+.section p{
+
+    white-space: pre-line;
+
+    line-height: 1.8;
+}
+
+#backBtn{
+
+    position:absolute;
+
+    top:20px;
+    left:20px;
+
+    z-index:1001;
+
+    padding:12px 22px;
+
+    border:3px solid #0aee84;
+
+    background:rgba(0, 0, 0, 0);
+
+    color:rgb(105, 243, 6);
+
+    cursor:pointer;
+
+    border-radius:10px;
+}
+
+#backBtn:hover{
+
+    box-shadow:
+        0 0 10px #00ff9d,
+        0 0 25px #00ff9d;
+
+    transform:scale(1.05);
+}
+
+/* ===========================
+   PANTALLA FINAL
+=========================== */
+
+#unlockScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#000;
+
+    z-index:99999;
+
+}
+
+#unlockScreen.show{
+
+    display:flex;
+
+}
+
+.unlock-content{
+
+    width:min(900px,90vw);
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    gap:35px;
+
+}
+
+.unlock-content h1{
+
+    font-size:clamp(70px,9vw,140px);
+
+    color:#b8ff00;
+
+    line-height:.9;
+
+    letter-spacing:10px;
+
+    text-shadow:
+
+        0 0 15px #7dff00,
+        0 0 40px #7dff00,
+        0 0 80px #7dff00;
+
+}
+
+.unlock-content span{
+
+    font-size:28px;
+
+    color:white;
+
+    letter-spacing:12px;
+
+}
+
+.unlock-content p{
+
+    max-width:760px;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:#ddd;
+
+}
+
+.unlock-content strong{
+
+    color:#b8ff00;
+
+}
+
+.unlock-content a{
+
+    padding:18px 70px;
+
+    color:#b8ff00;
+
+    border:2px solid #b8ff00;
+
+    text-decoration:none;
+
+    letter-spacing:5px;
+
+    transition:.3s;
+
+}
+
+.unlock-content a:hover{
+
+    background:#b8ff00;
+
+    color:#000;
+
+    box-shadow:0 0 30px #b8ff00;
+
+}

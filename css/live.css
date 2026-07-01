@@ -1,0 +1,721 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    background:#000;
+
+    font-family:Arial, sans-serif;
+
+    color:#fff;
+
+}
+
+/* ============================
+        INTRO TEXTO
+============================ */
+
+#introScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#000;
+
+    z-index:100;
+
+}
+
+.intro-content{
+
+    text-align:center;
+
+}
+
+.intro-content h1{
+
+    font-size:5rem;
+
+    letter-spacing:12px;
+
+}
+
+.intro-content h2{
+
+    margin-top:15px;
+
+    color:#6fff00;
+
+    font-weight:300;
+
+}
+
+.intro-content p{
+
+    margin-top:25px;
+
+    opacity:.7;
+
+}
+
+#startBtn{
+
+    margin-top:40px;
+
+    padding:15px 50px;
+
+    background:none;
+
+    border:1px solid #6fff00;
+
+    color:#6fff00;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    transition:.25s;
+
+}
+
+#startBtn:hover{
+
+    background:#6fff00;
+
+    color:#000;
+
+}
+
+/* ============================
+      INTRO VIDEO VERTICAL
+============================ */
+
+#introVideoScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+
+    background:#000;
+
+    z-index:9999;
+
+}
+
+#introVideo{
+
+    display:block;
+
+    width:auto;
+
+    height:90vh;
+
+    object-fit:contain;
+
+    background:#000;
+
+}
+
+#acceptBtn{
+
+    margin-top:30px;
+
+    padding:15px 40px;
+
+    border:2px solid #6fff00;
+
+    background:transparent;
+
+    color:#6fff00;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.4s;
+
+}
+
+#acceptBtn.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+#acceptBtn:hover{
+
+    box-shadow:
+    0 0 15px #6fff00;
+
+}
+
+/* ============================
+        PLAYER
+============================ */
+
+#playerContainer{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+    background:#000;
+
+    z-index:50;
+
+}
+
+#liveVideo{
+
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/* ============================
+        CONTROLES
+============================ */
+
+#controls{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:20px;
+
+    transform:translateX(-50%);
+
+    width:90%;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:opacity .3s;
+
+    z-index:1000;
+
+}
+
+#controls::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:-40px;
+
+    height:180px;
+
+    background:
+    linear-gradient(
+        transparent,
+        rgba(0,0,0,.75)
+    );
+
+    z-index:-1;
+
+}
+
+.timeline-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.timeline-wrapper span{
+
+    width:65px;
+
+    text-align:center;
+
+    font-size:1.2rem;
+
+}
+
+#timeline{
+
+    position:relative;
+
+    flex:1;
+
+    height:4px;
+
+    background:
+    rgba(162,255,2,.15);
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    transition:.2s;
+
+}
+
+#timeline:hover{
+
+    height:6px;
+
+}
+
+#timelineProgress{
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:0;
+
+    height:100%;
+
+    background:#6fff00;
+
+    box-shadow:
+
+    0 0 10px #6fff00,
+
+    0 0 25px #6fff00;
+
+}
+
+#timelineThumb{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    background:#c6ff00;
+
+    opacity:0;
+
+    transition:.2s;
+
+}
+
+#timeline:hover #timelineThumb{
+
+    opacity:1;
+
+}
+
+#timePreview{
+
+    position:absolute;
+
+    bottom:28px;
+
+    transform:translateX(-50%);
+
+    padding:6px 10px;
+
+    border-radius:6px;
+
+    background:#000;
+
+    color:#fff;
+
+    font-size:.8rem;
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+.controls-row{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+    margin-top:20px;
+
+}
+
+.control-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.buttons button{
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:
+    rgba(0,0,0,.6);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.2s;
+
+}
+
+.buttons button:hover{
+
+    background:#6fff00;
+
+    color:#000;
+
+    transform:scale(1.08);
+
+}
+
+#playPause{
+
+    width:70px !important;
+
+    height:70px !important;
+
+    font-size:24px !important;
+
+}
+
+/* ============================
+        BOTON RETURN
+============================ */
+
+#backBtn{
+
+    position:absolute;
+
+    top:20px;
+
+    left:20px;
+
+    z-index:2000;
+
+    padding:12px 22px;
+
+    border:3px solid #0aee84;
+
+    background:transparent;
+
+    color:#69f306;
+
+    cursor:pointer;
+
+    border-radius:10px;
+
+    transition:.25s;
+
+}
+
+#backBtn:hover{
+
+    box-shadow:
+
+    0 0 10px #00ff9d,
+
+    0 0 25px #00ff9d;
+
+    transform:scale(1.05);
+
+}
+
+/* ============================
+      PANTALLA DESBLOQUEO
+============================ */
+
+#unlockScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    background:#000;
+
+}
+
+#unlockScreen h1{
+
+    color:#6fff00;
+
+    font-size:4rem;
+
+    letter-spacing:8px;
+
+}
+
+#unlockScreen p{
+
+    margin-top:20px;
+
+}
+
+#unlockScreen a{
+
+    margin-top:40px;
+
+    padding:15px 30px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border:1px solid #fff;
+
+}
+
+/*=========================
+    PANTALLA FINAL
+=========================*/
+
+#finalScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#000;
+
+    z-index:99999;
+
+}
+
+#finalScreen.show{
+
+    display:flex;
+
+}
+
+.final-content{
+
+    width:min(900px,90vw);
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    gap:30px;
+
+}
+
+.final-content h1{
+
+    font-size:clamp(80px,10vw,160px);
+
+    color:#b8ff00;
+
+    letter-spacing:10px;
+
+    line-height:.9;
+
+    text-shadow:
+        0 0 15px #7dff00,
+        0 0 40px #7dff00,
+        0 0 80px #7dff00;
+
+}
+
+.final-content span{
+
+    font-size:28px;
+
+    color:#fff;
+
+    letter-spacing:12px;
+
+}
+
+.final-content p{
+
+    max-width:760px;
+
+    font-size:22px;
+
+    line-height:1.9;
+
+    color:#d8d8d8;
+
+}
+
+.final-content strong{
+
+    color:#b8ff00;
+
+}
+
+.signature{
+
+    margin-top:10px;
+
+    font-size:18px;
+
+    letter-spacing:3px;
+
+    opacity:.8;
+
+    font-style:italic;
+
+}
+
+.final-content a{
+
+    margin-top:20px;
+
+    padding:18px 70px;
+
+    border:2px solid #b8ff00;
+
+    color:#b8ff00;
+
+    text-decoration:none;
+
+    letter-spacing:4px;
+
+    transition:.3s;
+
+}
+
+.final-content a:hover{
+
+    background:#b8ff00;
+
+    color:#000;
+
+    box-shadow:
+        0 0 30px #b8ff00;
+
+}
+
+#skipIntroBtn{
+
+    position:absolute;
+
+    top:25px;
+    right:25px;
+
+    padding:12px 28px;
+
+    border:2px solid #6fff00;
+
+    background:rgba(0,0,0,.45);
+
+    color:#6fff00;
+
+    font-size:15px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    border-radius:8px;
+
+    display:none;
+
+    z-index:99999;
+
+    transition:.3s;
+
+}
+
+#skipIntroBtn:hover{
+
+    background:#6fff00;
+
+    color:#000;
+
+    box-shadow:
+        0 0 20px #6fff00;
+
+}

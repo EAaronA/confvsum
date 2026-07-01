@@ -1,0 +1,562 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:black;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+    color:white;
+}
+
+#introScreen{
+
+    position:fixed;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:black;
+
+    z-index:100;
+}
+
+.intro-content{
+
+    text-align:center;
+}
+
+.intro-content h1{
+
+    font-size:5rem;
+
+    letter-spacing:12px;
+}
+
+.intro-content h2{
+
+    margin-top:15px;
+
+    color:#6fff00;
+
+    font-weight:300;
+}
+
+.intro-content p{
+
+    margin-top:25px;
+
+    opacity:.7;
+}
+
+#startBtn{
+
+    margin-top:40px;
+
+    background:none;
+
+    border:1px solid #6fff00;
+
+    color:#6fff00;
+
+    padding:15px 50px;
+
+    cursor:pointer;
+
+    font-size:1rem;
+}
+
+#startBtn:hover{
+
+    background:#6fff00;
+
+    color:black;
+}
+
+#playerContainer{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    display:none;
+}
+#albumVideo{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    z-index:1;
+}
+
+#controls{
+
+    position:absolute;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:90%;
+
+    z-index:9999;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:
+    opacity .25s ease;
+}
+
+.controls-row{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:40px;
+
+    margin-top:20px;
+}
+
+.control-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:5px;
+}
+
+.control-group button{
+
+    width:56px;
+    height:56px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:
+    rgba(0,0,0,.55);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:24px;
+
+    transition:.2s;
+}
+
+#controls::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:-40px;
+
+    height:180px;
+
+    background:
+    linear-gradient(
+        transparent,
+        rgba(0,0,0,.75)
+    );
+
+    z-index:-1;
+}
+
+.timeline-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    width:100%;
+}
+
+.timeline-wrapper span{
+
+    width:65px;
+
+    text-align:center;
+
+    font-size:1.2rem;
+
+    font-weight:500;
+}
+
+#timeline{
+
+    position:relative;
+
+    flex:1;
+
+    height:4px;
+
+    border-radius:999px;
+
+    background:
+    rgba(162, 255, 2, 0.15);
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    transition:.25s;
+}
+
+#timeline:hover{
+
+    height:6px;
+}
+
+#timelineProgress{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:0;
+    height:100%;
+
+    background:#6fff00;
+
+    border-radius:999px;
+
+    box-shadow:
+    0 0 10px #a6ff00,
+    0 0 25px #a6ff00;
+}
+
+#timelineThumb{
+
+    width:16px;
+    height:16px;
+
+    background:#c6ff00;
+
+    opacity:0;
+
+    transition:.15s;
+}
+
+#timeline:hover #timelineThumb{
+
+    opacity:1;
+}
+
+#timePreview{
+
+    position:absolute;
+
+    bottom:35px;
+
+    background:black;
+
+    color:white;
+
+    padding:8px 12px;
+
+    border-radius:8px;
+
+    font-size:.85rem;
+
+    white-space:nowrap;
+
+    transform:translateX(-50%);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    border:
+    1px solid rgba(255,255,255,.1);
+}
+
+.buttons{
+
+    margin-top:15px;
+
+    gap:15px;
+}
+.buttons button{
+
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:
+    rgba(0,0,0,.6);
+
+    color:white;
+
+    font-size:18px;
+
+    padding:0;
+}
+.buttons button:hover{
+
+   background:#6fff00;
+
+    color:black;
+
+    transform:scale(1.08);
+}
+#unlockScreen{
+
+    position:fixed;
+
+    width:100%;
+    height:100%;
+
+    background:black;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+}
+
+#unlockScreen h1{
+
+    color:#6fff00;
+
+    font-size:4rem;
+
+    letter-spacing:8px;
+}
+
+#unlockScreen p{
+
+    margin-top:20px;
+}
+
+#unlockScreen a{
+
+    margin-top:40px;
+
+    color:white;
+
+    text-decoration:none;
+
+    border:1px solid white;
+
+    padding:15px 30px;
+}
+
+#timePreview{
+
+    position:absolute;
+
+    bottom:25px;
+
+    transform:
+    translateX(-50%);
+
+    background:black;
+
+    color:white;
+
+    padding:6px 10px;
+
+    border-radius:6px;
+
+    font-size:.8rem;
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
+#playPause{
+
+    width:70px !important;
+    height:70px !important;
+
+    font-size:24px !important;
+}
+
+#controls{
+
+    transition:
+    opacity .3s ease;
+
+}
+
+#backBtn{
+
+    position:absolute;
+
+    top:20px;
+    left:20px;
+
+    z-index:1001;
+
+    padding:12px 22px;
+
+    border:3px solid #0aee84;
+
+    background:rgba(0, 0, 0, 0);
+
+    color:rgb(105, 243, 6);
+
+    cursor:pointer;
+
+    border-radius:10px;
+}
+
+#backBtn:hover{
+
+    box-shadow:
+        0 0 10px #00ff9d,
+        0 0 25px #00ff9d;
+
+    transform:scale(1.05);
+}
+
+/* ======================
+   PANTALLA FINAL
+====================== */
+
+#unlockScreen{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100vw;
+    height:100vh;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#000;
+
+    z-index:99999;
+
+}
+
+#unlockScreen.show{
+
+    display:flex;
+
+}
+
+.unlock-content{
+
+    width:min(900px,90vw);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    gap:35px;
+
+}
+
+.unlock-content h1{
+
+    font-size:clamp(70px,9vw,140px);
+
+    color:#b8ff00;
+
+    line-height:.9;
+
+    letter-spacing:10px;
+
+    text-shadow:
+        0 0 15px #7dff00,
+        0 0 40px #7dff00,
+        0 0 80px #7dff00;
+
+}
+
+.unlock-content span{
+
+    font-size:26px;
+
+    color:white;
+
+    letter-spacing:12px;
+
+}
+
+.unlock-content p{
+
+    max-width:700px;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:#ddd;
+
+}
+
+.unlock-content a{
+
+    padding:18px 70px;
+
+    color:#b8ff00;
+
+    border:2px solid #b8ff00;
+
+    text-decoration:none;
+
+    letter-spacing:5px;
+
+    transition:.3s;
+
+}
+
+.unlock-content a:hover{
+
+    background:#b8ff00;
+
+    color:#000;
+
+    box-shadow:0 0 30px #b8ff00;
+
+}
